@@ -23,5 +23,5 @@ A normalização de banco de dados refere-se à organização de dados em tabela
 
 ## Exemplo de Tabela Não Normalizada
 
-![Tabela](https://exemplo.com/imagem.png)
+![Tabela]((https://github.com/aliciasoares/Atividade08/blob/main/imagem.png)
 
