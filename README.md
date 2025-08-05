@@ -59,7 +59,7 @@ Depois, percebi que os dados sobre os produtos (nome e preço unitário) também
 Por fim, criei uma tabela só para os pedidos, com os campos essenciais: o identificador do pedido, o ID do cliente que fez esse pedido, o ID do produto comprado e a quantidade.
 
 # Estrutura não relacional;
-
+```
 [
   {
     "cliente_id": 1,
@@ -100,7 +100,7 @@ Por fim, criei uma tabela só para os pedidos, com os campos essenciais: o ident
     ]
   }
 ]
-
+```
 ## Explicação;
 No modelo não relacional, como o **JSON**, os dados são organizados de forma mais flexível e próxima da realidade da aplicação, agrupando informações relacionadas em um único documento. Isso elimina a necessidade de normalização, pois **não é preciso dividir os dados em várias tabelas para evitar redundâncias**. Em vez disso, por exemplo, os pedidos de um cliente podem ser armazenados diretamente dentro do próprio documento do cliente. Isso reduz a complexidade na hora de consultar os dados, já que tudo o que se precisa está em um só lugar, sem precisar fazer junções entre tabelas. Essa estrutura se adequa melhor a aplicações que priorizam **velocidade de leitura e flexibilidade,** como sistemas da web ou redes sociais, onde os dados mudam com frequência e a estrutura pode variar bastante entre registros.
 
