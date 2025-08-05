@@ -30,4 +30,6 @@ A normalização de banco de dados refere-se à organização de dados em tabela
 ![1 normalização](https://raw.githubusercontent.com/aliciasoares/Atividade08/refs/heads/main/imagem%202.png)
 - Explicação: Primeiro, extraí as colunas que tinham a ver com o produto, para fazer uma tabela somente com as informações que dependem do cliente.
 - ![Segunda imagem](https://raw.githubusercontent.com/aliciasoares/Atividade08/refs/heads/main/imagem%203.png)
-
+- Explicação: Depois, fiz o mesmo com a parte dos Produtos, criando uma nova tabela apenas para as colunas que dependem do produto.
+- ![Terceira Imagem](https://raw.githubusercontent.com/aliciasoares/Atividade08/refs/heads/main/imagem%203.png)
+- Explicação: Também separei somente os itens que dependem do pedido, criando uma nova tabela.
