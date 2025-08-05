@@ -25,3 +25,5 @@ A normalização de banco de dados refere-se à organização de dados em tabela
 
 ![Tabela](imagem.png)
 
+## Normalização
+
