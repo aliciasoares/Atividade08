@@ -24,7 +24,7 @@ ___
 
 ## Exemplo de Tabela Não Normalizada
 
-![Tabela](imagem.png)
+![Tabela](
 
 ## Normalização
 
