@@ -23,12 +23,84 @@ ___
 - Criar uma estrutura de dados lógica e consistente.
 
 ## Exemplo de Tabela Não Normalizada
+| Pedido_ID | Cliente_Nome | Cliente_Endereço     | Produto_ID | Produto_Nome | Quantidade | Preço_Total |
+|-----------|---------------|-----------------------|-------------|----------------|-------------|--------------|
+| 1         | Carol         | Rua Francisco, 123    | 10          | Borracha       | 2           | 4,00         |
+| 2         | Murilo        | Rua Parque, 321       | 11          | Apontador      | 2           | 10,00        |
 
-![Tabela](
 
 ## Normalização
+### Tabela do Cliente
+| ID do Cliente | Nome   | Endereço         | Número de Endereço |
+|---------------|--------|------------------|---------------------|
+| 1             | Carol  | Rua Francisco    | 123                 |
+| 2             | Murilo | Rua Parque 321   | 321                 |
 
-| Nome  | Idade | Profissão  |
-|-------|------|------------|
-| Ana   | 25   | Engenheira |
-| João  | 30   | Professor  |
+### Tabela do Produto
+| Produto_ID | Nome do Produto | Preço Unitário |
+|------------|------------------|----------------|
+| 10         | Borracha         | 2,00           |
+| 11         | Apontador        | 5,00           |
+
+### Tabela dos Pedidos
+
+| Pedido_ID | ID do Cliente | Produto_ID | Quantidade |
+|-----------|----------------|-------------|-------------|
+| 1         | 1              | 10          | 2           |
+| 2         | 2              | 11          | 2           |
+
+- Explicação:
+Primeiro, observei que os dados dos clientes (nome e endereço) estavam repetidos junto com os pedidos. Como um mesmo cliente pode fazer vários pedidos, decidi separar essas informações em uma tabela exclusiva para clientes. Criei um campo chamado "ID do Cliente" para identificá-los de forma única, e coloquei junto o nome, o endereço e o número da casa.
+
+- Organização dos Produtos
+Depois, percebi que os dados sobre os produtos (nome e preço unitário) também se repetiriam a cada novo pedido. Para evitar essa repetição, criei uma tabela específica só para produtos. Nela, cada produto recebe um "Produto_ID" único, que é usado nas outras tabelas apenas como referência. Assim, se o nome ou o preço mudar, alteramos apenas em um lugar.
+
+- Criação da Tabela de Pedidos
+Por fim, criei uma tabela só para os pedidos, com os campos essenciais: o identificador do pedido, o ID do cliente que fez esse pedido, o ID do produto comprado e a quantidade.
+
+# Estrutura não relacional;
+
+[
+  {
+    "cliente_id": 1,
+    "nome": "Carol",
+    "endereco": {
+      "rua": "Rua Francisco",
+      "numero": 123
+    },
+    "pedidos": [
+      {
+        "pedido_id": 1,
+        "produto": {
+          "produto_id": 10,
+          "nome": "Borracha",
+          "preco_unitario": 2.00
+        },
+        "quantidade": 2
+      }
+    ]
+  },
+  {
+    "cliente_id": 2,
+    "nome": "Murilo",
+    "endereco": {
+      "rua": "Rua Parque 321",
+      "numero": 321
+    },
+    "pedidos": [
+      {
+        "pedido_id": 2,
+        "produto": {
+          "produto_id": 11,
+          "nome": "Apontador",
+          "preco_unitario": 5.00
+        },
+        "quantidade": 2
+      }
+    ]
+  }
+]
+
+## Explicação;
+No modelo não relacional, como o **JSON**, os dados são organizados de forma mais flexível e próxima da realidade da aplicação, agrupando informações relacionadas em um único documento. Isso elimina a necessidade de normalização, pois **não é preciso dividir os dados em várias tabelas para evitar redundâncias**. Em vez disso, por exemplo, os pedidos de um cliente podem ser armazenados diretamente dentro do próprio documento do cliente. Isso reduz a complexidade na hora de consultar os dados, já que tudo o que se precisa está em um só lugar, sem precisar fazer junções entre tabelas. Essa estrutura se adequa melhor a aplicações que priorizam **velocidade de leitura e flexibilidade,** como sistemas da web ou redes sociais, onde os dados mudam com frequência e a estrutura pode variar bastante entre registros.
+
