@@ -24,6 +24,9 @@ A normalização de banco de dados refere-se à organização de dados em tabela
 ## Exemplo de Tabela Não Normalizada
 
 ![Tabela](imagem.png)
-
+- Explicação; Primeiro, extraí as colunas que tinham a ver com o produto, para fazer uma tabela somente com as informações que dependem do cliente.
 ## Normalização
+1ª Forma Normal (1FN)
+![Tabela](imagem 2.png)
+Explicação:
 
