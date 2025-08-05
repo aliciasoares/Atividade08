@@ -27,6 +27,6 @@ A normalização de banco de dados refere-se à organização de dados em tabela
 - Explicação; Primeiro, extraí as colunas que tinham a ver com o produto, para fazer uma tabela somente com as informações que dependem do cliente.
 ## Normalização
 1ª Forma Normal (1FN)
-![1 normalização](imagem 2.png)
+![1 normalização]([imagem 2.png](https://raw.githubusercontent.com/aliciasoares/Atividade08/refs/heads/main/imagem.png))
 Explicação:
 
