@@ -47,10 +47,10 @@ ___
 
 ## 1ª Forma Normal(1FN)
 
-A 1ª Forma Normal tem como principal objetivo **garantir que todos os dados estejam organizados em campos atômicos — ou seja, cada campo deve conter apenas um valor por vez, sem listas, repetições ou agrupamentos.** 
+A 1ª Forma Normal tem como principal objetivo **garantir que todos os dados estejam organizados em campos atômicos, ou seja, cada campo deve conter apenas um valor por vez, sem listas, repetições ou agrupamentos.** 
 
 ## 2ª Forma Normal (2FN)
-Na 2ª Forma devemos eliminar **dependências parciais**, ou seja, casos em que **certos campos não dependem da chave primária composta completa** (neste caso, **Pedido_ID + Produto_ID**), mas apenas de parte dela. Por exemplo, o nome e endereço do cliente dependem apenas do **Cliente_ID (ou do Pedido_ID**, que está ligado ao cliente), e o nome do produto depende só do **Produto_ID.** Para arrumar isso, dividi a tabela original em três tabelas separadas: **uma para os clientes, uma para os produtos e uma para os pedidos, contendo apenas as informações necessárias.**
+Na 2ª Forma devemos eliminar **dependências parciais**, ou seja, casos em que **os campos não dependem da chave primária composta completa**, mas apenas de parte dela. Por exemplo, o nome e endereço do cliente dependem apenas do **Cliente_ID, ou do Pedido_ID**, que está ligado ao cliente), e o nome do produto depende só do **Produto_ID.** Para arrumar isso, dividi a tabela original em três tabelas separadas: **uma para os clientes, uma para os produtos e uma para os pedidos, contendo apenas as informações necessárias.**
 
 ## Resultado: 
 
@@ -76,7 +76,7 @@ Na 2ª Forma devemos eliminar **dependências parciais**, ou seja, casos em que 
 | 2         | 2              | 11         | 2          |
 
 ### 3ª Forma Normal
-- A 3ª Forma Normal tem como foco remover **dependências transitivas**, que ocorrem quando um campo depende de outro campo que não é a chave primária, mas sim de outro campo que também depende da chave. Por exemplo, o campo **Preço Total** depende de **Quantidade e de Preço Unitário**, que depende do Produto_ID. Então, **Preço_Total** é uma dependência transitiva e deve ser eliminado da tabela, já que pode ser calculado a partir das outras informações que já estão expostas. Além disso, na tabela de clientes, dividi o endereço em duas partes: **Rua e Número.**
+- A 3ª Forma Normal tem como foco remover **dependências transitivas**, que ocorrem quando um campo depende de outro campo que não é a chave primária, mas sim de **outro campo que também depende da chave**. Por exemplo, o campo **Preço Total** depende de **Quantidade e de Preço Unitário**, que depende do Produto_ID. Então, **Preço_Total** é uma dependência transitiva e deve ser eliminado da tabela, já que pode ser calculado a partir das outras informações que já estão expostas. Além disso, na tabela de clientes, dividi o endereço em duas partes: **Rua e Número.**
 
 ## Resultado:
   
@@ -145,5 +145,5 @@ ___
 ]
 ```
 ## Explicação;
-No modelo não relacional, como o **JSON**, os dados são organizados de forma mais flexível e próxima da realidade da aplicação, agrupando informações relacionadas em um único documento. Isso elimina a necessidade de normalização, pois **não é preciso dividir os dados em várias tabelas para evitar redundâncias**. Em vez disso, por exemplo, os pedidos de um cliente podem ser armazenados diretamente dentro do próprio documento do cliente. Isso reduz a complexidade na hora de consultar os dados, já que tudo o que se precisa está em um só lugar, sem precisar fazer junções entre tabelas. Essa estrutura se adequa melhor a aplicações que priorizam **velocidade de leitura e flexibilidade,** como sistemas da web ou redes sociais, onde os dados mudam com frequência e a estrutura pode variar bastante entre registros.
+No modelo não relacional, como o **JSON**, os dados são organizados de forma mais flexível e próxima da realidade da aplicação, agrupando informações relacionadas em um único documento. Isso faz com que não haja necessidade de **normalização**, pois **não é preciso dividir os dados em várias tabelas para evitar repetições**. Em vez disso, por exemplo, os pedidos de um cliente podem ser armazenados diretamente dentro do próprio documento do cliente. Isso reduz a dificuldade na hora de consultar os dados, já que tudo o que se precisa está em um só lugar, sem precisar fazer junções entre tabelas. Essa estrutura se adequa melhor a aplicações que priorizam **velocidade de leitura e flexibilidade,** como sistemas da web ou redes sociais, onde os dados mudam com frequência e a estrutura pode variar bastante.
 
